@@ -536,6 +536,9 @@ mod = abs(z_alcance_z2)
 ang = math.degrees(cmath.phase(z_alcance_z2))
 st.latex(f"Z_{{alcance\\_z2}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
 
+st.latex(f"Z_{{z2\\_min}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z2\\_med}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z2\\_max}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
 
 
 st.markdown("#### Zona 3")
