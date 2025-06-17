@@ -523,22 +523,37 @@ else:
 z_alcance_z2 = z2_min  # default
 
 if abs(z2_med) < abs(z2_min):
-    z_alcance_z2 = z2_min
+    z_alcance_z2 = z2_med
 elif abs(z2_med) > abs(z2_max):
     z_alcance_z2 = z2_max
 else:
-    z_alcance_z2 = z2_med
+    z_alcance_z2 = z2_min
 
 # ---------------------------------------------------
 # Mostrar resultados
 st.markdown("**Resultado:**")
+
+mod1 = abs(z2_min)
+ang1 = math.degrees(cmath.phase(z2_min))
+mod2 = abs(z2_med)
+ang2 = math.degrees(cmath.phase(mod2))
+mod3 = abs(z2_max)
+ang3 = math.degrees(cmath.phase(z2_max))
+
+st.latex(f"Z_{{z2\\_min}} = {mod1:.4f} \\angle {ang1:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z2\\_}} = {mod2:.4f} \\angle {ang2:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z2\\_max}} = {mod3:.4f} \\angle {ang3:.2f}^\\circ \\, \\Omega")
+
+st.markdown(
+    "*Valor escogido*"
+)
+
 mod = abs(z_alcance_z2)
 ang = math.degrees(cmath.phase(z_alcance_z2))
 st.latex(f"Z_{{alcance\\_z2}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
 
-st.latex(f"Z_{{z2\\_min}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
-st.latex(f"Z_{{z2\\_med}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
-st.latex(f"Z_{{z2\\_max}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
+
+
 
 
 st.markdown("#### Zona 3")
@@ -593,15 +608,33 @@ z3_1 = 1.2 * (z_linea + z_mayor_linea)
 z3_2 = z_linea + 1.25 * z_mayor_linea
 z3_3 = z_linea + 0.8 * z_mayor_trafo
 
-# Seleccionar el valor con menor magnitud
-z_alcance_z3 = min([z3_1, z3_2, z3_3], key=abs)
+
+
+mod1 = abs(z3_1)
+ang1 = math.degrees(cmath.phase(z3_1))
+mod2 = abs(z3_2)
+ang2 = math.degrees(cmath.phase(z3_2))
+mod3 = abs(z3_3)
+ang3 = math.degrees(cmath.phase(z3_3))
+
 
 # Mostrar resultado
 st.markdown("**Resultado:**")
+
+st.latex(f"Z_{{z3\\_1}} = {mod1:.4f} \\angle {ang1:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z3\\_}} = {mod2:.4f} \\angle {ang2:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z3\\_3}} = {mod3:.4f} \\angle {ang3:.2f}^\\circ \\, \\Omega")
+
+# Seleccionar el valor con menor magnitud
+z_alcance_z3 = min([z3_1, z3_2, z3_3], key=abs)
+
+st.markdown(
+    "*Valor escogido*"
+)
+
 mod = abs(z_alcance_z3)
 ang = math.degrees(cmath.phase(z_alcance_z3))
 st.latex(f"Z_{{alcance\\_z3}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
-
 
 st.markdown("#### Zona 4")
 st.markdown(
@@ -657,6 +690,26 @@ z_alcance_z4 = min([z4_1, z4_2, z4_3], key=abs)
 # -----------------------------
 # Mostrar resultado
 st.markdown("**Resultado:**")
+
+mod1 = abs(z4_1)
+ang1 = math.degrees(cmath.phase(z4_1))
+mod2 = abs(z4_2)
+ang2 = math.degrees(cmath.phase(z4_2))
+mod3 = abs(z4_3)
+ang3 = math.degrees(cmath.phase(z4_3))
+
+
+# Mostrar resultado
+st.markdown("**Resultado:**")
+
+st.latex(f"Z_{{z4\\_1}} = {mod1:.4f} \\angle {ang1:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z4\\_}} = {mod2:.4f} \\angle {ang2:.2f}^\\circ \\, \\Omega")
+st.latex(f"Z_{{z4\\_3}} = {mod3:.4f} \\angle {ang3:.2f}^\\circ \\, \\Omega")
+
+st.markdown(
+    "*Valor escogido*"
+)
+
 mod = abs(z_alcance_z4)
 ang = math.degrees(cmath.phase(z_alcance_z4))
 st.latex(f"Z_{{alcance\\_z4}} = {mod:.4f} \\angle {ang:.2f}^\\circ \\, \\Omega")
