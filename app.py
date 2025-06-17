@@ -685,7 +685,8 @@ z4_3 = 0.2 * z_min_trafo_origen if z_min_trafo_origen else 0
 
 # -----------------------------
 # Selección final por menor módulo
-z_alcance_z4 = min([z4_1, z4_2, z4_3], key=abs)
+#z_alcance_z4 = min([z4_1, z4_2, z4_3], key=abs)
+z_alcance_z4 = min((z for z in [z4_1, z4_2, z4_3] if z != 0), key=abs)
 
 # -----------------------------
 # Mostrar resultado
